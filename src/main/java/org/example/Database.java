@@ -12,6 +12,7 @@ public class Database {
     SessionFactory ss;
     public static SessionFactory getSessionFactory(){
             SessionFactory sessionFactory = new Configuration()
+
                     // use H2 in-memory database
                     .setProperty("hibernate.connection.url", "jdbc:h2:mem:db1")
                     // default username / password
@@ -22,6 +23,7 @@ public class Database {
                     .setProperty("hibernate.format_sql", "true")
                     .setProperty("hibernate.highlight_sql", "true")
                     .setProperty("hibernate.agroal.maxSize", "20")
+                    .addAnnotatedClass(Category.class)
                     .buildSessionFactory();
 
             return sessionFactory;
