@@ -11,6 +11,7 @@ import java.util.Date;
 class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     @Column(name = "username")
@@ -22,9 +23,9 @@ class User {
     @Column (name = "password")
     String password;
 
-//    @Column (name = "roles")
-//    @Enumerated(EnumType.STRING)
-//    private Roles roles;
+    @Column (name = "roles")
+    @Enumerated(EnumType.STRING)
+    private Roles roles;
 
     @Column (name = "date_registered")
     String dateRegistered;
@@ -34,7 +35,7 @@ class User {
         this.userName = userName;
         this.email = email;
         this.password = password;
-//        this.roles = roles;
+        this.roles = roles;
         this.dateRegistered = dateRegistered;
     }
 }

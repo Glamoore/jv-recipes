@@ -1,14 +1,13 @@
 package org.example;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Date;
 
 @Entity
 class Recipe {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     @Column (name = "title")
@@ -30,7 +29,7 @@ class Recipe {
     int difficultyLevel;
 
     @Column (name = "ratings")
-    int rating;
+    Rating rating;
 
     @Column (name = "list_ingredients")
     Ingredient listOfIngredients;
@@ -38,8 +37,9 @@ class Recipe {
     @Column (name = "list_categories")
     Category listOfCategories;
 
-//    @Column (name = "creator")
-//    User creator;
+    @Column (name = "creator")
+    @ManyToOne
+    User creator;
 
     @Column (name = "date_created")
     Date dateCreated;
