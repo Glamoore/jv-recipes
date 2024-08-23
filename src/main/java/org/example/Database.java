@@ -5,14 +5,14 @@ import java.net.URL;
 import static java.lang.Boolean.TRUE;
 import static org.hibernate.cfg.JdbcSettings.*;
 
+
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class Database {
-    SessionFactory ss;
+
     public static SessionFactory getSessionFactory(){
             SessionFactory sessionFactory = new Configuration()
-
                     // use H2 in-memory database
                     .setProperty("hibernate.connection.url", "jdbc:h2:mem:db1")
                     // default username / password
@@ -23,12 +23,11 @@ public class Database {
                     .setProperty("hibernate.format_sql", "true")
                     .setProperty("hibernate.highlight_sql", "true")
                     .setProperty("hibernate.agroal.maxSize", "20")
-//                    .addAnnotatedClass(Category.class)
-                    .addAnnotatedClass(User.class)
+                    .addAnnotatedClass(Category.class)
+//                    .addAnnotatedClass(User.class)
                     .buildSessionFactory();
 
             return sessionFactory;
-
     };
 
 }

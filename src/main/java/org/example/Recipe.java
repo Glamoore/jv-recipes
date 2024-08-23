@@ -33,10 +33,10 @@ class Recipe {
     int rating;
 
     @Column (name = "list_ingredients")
-    String listOfIngredients;
+    Ingredient listOfIngredients;
 
     @Column (name = "list_categories")
-    String listOfCategories;
+    Category listOfCategories;
 
 //    @Column (name = "creator")
 //    User creator;
