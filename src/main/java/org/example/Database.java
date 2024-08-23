@@ -23,7 +23,8 @@ public class Database {
                     .setProperty("hibernate.format_sql", "true")
                     .setProperty("hibernate.highlight_sql", "true")
                     .setProperty("hibernate.agroal.maxSize", "20")
-                    .addAnnotatedClass(Category.class)
+//                    .addAnnotatedClass(Category.class)
+                    .addAnnotatedClass(User.class)
                     .buildSessionFactory();
 
             return sessionFactory;
